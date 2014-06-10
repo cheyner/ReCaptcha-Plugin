@@ -6,7 +6,7 @@ class ValidationBehavior extends ModelBehavior {
 				'rule' => array('checkRecaptcha', 'recaptcha_challenge_field'),
 				'required' => true,
 				'allowEmpty' => false,
-				'message' => "Vous n'avez pas tapé les mots correctement. Réessayez s'il vous plaît.",
+				'message' => "Your response did not match the verification image.  Please try again.",
 			),
 		);
 		return true;
