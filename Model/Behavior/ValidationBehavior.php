@@ -12,7 +12,7 @@ class ValidationBehavior extends ModelBehavior {
 		return true;
 	}
 
-	function checkRecaptcha(&$model, $data, $target) {
+	function checkRecaptcha(Model $model, $data, $target) {
 		App::import('Vendor', 'Recaptcha.recaptchalib');
 		$privatekey = Configure::read('Recaptcha.Private');
 		$res = recaptcha_check_answer(
