@@ -1,6 +1,6 @@
 <?php
 class ValidationBehavior extends ModelBehavior {
-	function beforeValidate(&$model) {
+	function beforeValidate(&$model, $options = array()) {
 		$model->validate['recaptcha_response_field'] = array(
 			'checkRecaptcha' => array(
 				'rule' => array('checkRecaptcha', 'recaptcha_challenge_field'),
