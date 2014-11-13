@@ -9,13 +9,14 @@ class RecaptchaHelper extends AppHelper {
 				$options['theme'] = 'red';
 			}
 		}
+
 		App::import('Vendor', 'Recaptcha.recaptchalib');
 		$publickey = Configure::read('Recaptcha.Public');
 		$html = '<script type="text/javascript">var RecaptchaOptions = ' . json_encode($options) . ';</script>';
 		if (isset($recaptcha_error)) {
 			$html .= $recaptcha_error . '<br/>';
 		}
-		return $html .= recaptcha_get_html($publickey);
+		return $html .= recaptcha_get_html($publickey, null, $this->request->is('ssl'));
 	}
 
 	function error() {
